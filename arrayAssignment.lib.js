@@ -27,11 +27,3 @@ exports.sumOfNumbers = function(listOfNumbers) {
   }
   return sum;
 }
-
-exports.sumOfNumbers = function(listOfNumbers) {
-  let sum = 0;
-  for(number of listOfNumbers) {
-    sum = sum + number;
-  }
-  return sum;
-}
