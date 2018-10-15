@@ -1,5 +1,5 @@
 const assert = require('assert');
-const {findEvenNumbers,findOddNumbers, sumOfNumbers}= require("./arrayAssignment.lib.js");
+const {findEvenNumbers,findOddNumbers, sumOfNumbers,selectEverySecondElement}= require("./arrayAssignment.lib.js");
 
 const findEvenNumbersTest = function() {
   assert.deepEqual(findEvenNumbers([]), []); 
@@ -23,6 +23,15 @@ const sumOfNumbersTest = function() {
   assert.equal(sumOfNumbers([1,2]), 3);
   assert.equal(sumOfNumbers([10, 20, 30]), 60);
 }
+
+const selectEverySecondElementTest = function() {
+  assert.deepEqual(selectEverySecondElement([1]), [1]);
+  assert.deepEqual(selectEverySecondElement([1, 2]), [1]);
+  assert.deepEqual(selectEverySecondElement([1, 2, 3]), [1, 3]);
+  assert.deepEqual(selectEverySecondElement([1, 2, 3, "aftab", "shaikh"]), [1, 3, "shaikh"]);
+}
+
 findEvenNumbersTest();
 findOddNumbersTest();
 sumOfNumbersTest();
+selectEverySecondElementTest();

@@ -27,3 +27,11 @@ exports.sumOfNumbers = function(listOfNumbers) {
   }
   return sum;
 }
+
+exports.selectEverySecondElement = function(listOfNumbers) {
+  let result = [];
+  for(let index = 0; index < listOfNumbers.length; index = index + 2) {
+    result.push(listOfNumbers[index]);
+  }
+  return result;
+}
