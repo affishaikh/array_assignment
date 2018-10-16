@@ -35,3 +35,13 @@ exports.selectEverySecondElement = function(listOfNumbers) {
   }
   return result;
 }
+
+exports.greatestNumberFromList = function(listOfNumbers) {
+  let result = 0;
+  for(number of listOfNumbers) {
+    if(result<number){
+      result = number;
+    }
+  }
+  return result;
+}
