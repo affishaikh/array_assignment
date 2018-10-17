@@ -53,3 +53,8 @@ exports.mapElementsLength = function(listOfElements) {
   }
   return result;
 }
+
+exports.countOddNumbers = function(listOfNumbers) {
+  let oddNumbersArray = exports.findOddNumbers(listOfNumbers);
+  return oddNumbersArray.length;
+}

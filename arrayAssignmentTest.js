@@ -1,7 +1,7 @@
 const assert = require('assert');
 const {findEvenNumbers,findOddNumbers, sumOfNumbers,selectEverySecondElement}= require("./arrayAssignmentLib.js");
 const {greatestNumberFromList}= require("./arrayAssignmentLib.js");
-const {mapElementsLength}= require("./arrayAssignmentLib.js");
+const {mapElementsLength, countOddNumbers}= require("./arrayAssignmentLib.js");
 const findEvenNumbersTest = function() {
   assert.deepEqual(findEvenNumbers([]), []); 
   assert.deepEqual(findEvenNumbers([1]), []); 
@@ -44,13 +44,17 @@ const mapElementsLengthTest = function() {
   assert.deepEqual(mapElementsLength(["aftab"]), [5]);
   assert.deepEqual(mapElementsLength(["aftab","shaikh","cksharma","dheeraj"]), [5,6,8,7]);
 }
-const name = function() {
-    return 0;
-}
 
+const countOddNumbersTest = function() {
+  assert.equal(countOddNumbers([1,2]), 1);
+  assert.equal(countOddNumbers([1,2, 3, 4, 5, 6]), 3);
+  assert.equal(countOddNumbers([2,2, 3, 5]), 2);
+  assert.equal(countOddNumbers([2,2]), 0);
+}
 findEvenNumbersTest();
 findOddNumbersTest();
 sumOfNumbersTest();
 selectEverySecondElementTest();
 greatestNumberFromListTest();
 mapElementsLengthTest();
+countOddNumbersTest();
