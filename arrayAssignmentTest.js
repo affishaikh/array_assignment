@@ -1,7 +1,8 @@
 const assert = require('assert');
 const {findEvenNumbers,findOddNumbers, sumOfNumbers,selectEverySecondElement}= require("./arrayAssignment.lib.js");
 const {greatestNumberFromList}= require("./arrayAssignment.lib.js");
-
+const {mapElementsLength}= require("./arrayAssignment.lib.js");
+console.log(mapElementsLength);
 const findEvenNumbersTest = function() {
   assert.deepEqual(findEvenNumbers([]), []); 
   assert.deepEqual(findEvenNumbers([1]), []); 
@@ -29,7 +30,7 @@ const selectEverySecondElementTest = function() {
   assert.deepEqual(selectEverySecondElement([1]), [1]);
   assert.deepEqual(selectEverySecondElement([1, 2]), [1]);
   assert.deepEqual(selectEverySecondElement([1, 2, 3]), [1, 3]);
-  assert.deepEqual(selectEverySecondElement([1, 2, 3, "aftab", "shaikh"]), [1, 3, "shaikh"]);
+  assert.deepEqual(selectEverySecondElement([1, 2, 3, "aftab", "shaikh"]), [1, 3, 'shaikh']);
 }
 
 const greatestNumberFromListTest = function() {
@@ -38,8 +39,15 @@ const greatestNumberFromListTest = function() {
   assert.deepEqual(greatestNumberFromList([1, 45, 13, 90, 98, 1001]), 1001);
 }
 
+
+const mapElementsLengthTest = function() {
+  assert.deepEqual(mapElementsLength(["a"]), [1]);
+  assert.deepEqual(mapElementsLength(["aftab"]), [5]);
+}
+
 findEvenNumbersTest();
 findOddNumbersTest();
 sumOfNumbersTest();
 selectEverySecondElementTest();
 greatestNumberFromListTest();
+mapElementsLengthTest();
