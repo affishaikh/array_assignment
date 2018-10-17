@@ -58,3 +58,9 @@ exports.countOddNumbers = function(listOfNumbers) {
   let oddNumbersArray = exports.findOddNumbers(listOfNumbers);
   return oddNumbersArray.length;
 }
+
+exports.countEvenNumbers = function(listOfNumbers) {
+  let evenNumbersArray = exports.findEvenNumbers(listOfNumbers);
+  return evenNumbersArray.length;
+}
+
