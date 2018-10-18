@@ -108,9 +108,9 @@ const intersectionTest = function() {
 
 const differenceTest = function() {
   assert.deepEqual(difference([],[]),[]);
-  assert.deepEqual(difference([1],[1]), [1]);
-  assert.deepEqual(difference([1, 2], [2, 3]), [2]);
-  assert.deepEqual(difference(["Aftab", "Aftab","shaikh"], ["shaikh", 3]), ["shaikh"]);
+  assert.deepEqual(difference([1],[1]), []);
+  assert.deepEqual(difference([1, 2], [2, 3]), [1]);
+  assert.deepEqual(difference(["Aftab", "Aftab","shaikh"], ["shaikh", 3]), ["Aftab"]);
 }
 findEvenNumbersTest();
 findOddNumbersTest();

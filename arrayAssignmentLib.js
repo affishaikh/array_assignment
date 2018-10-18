@@ -118,3 +118,15 @@ exports.intersection = function(listOfElements1, listOfElements2) {
   }
   return result;
 }
+
+exports.difference = function(listOfElements1, listOfElements2) {
+  let uniqueElementsOfList1 = exports.unique(listOfElements1);
+  let result = [];
+  for(element of uniqueElementsOfList1) {
+    let isIncluded = listOfElements2.includes(element); 
+    if(!isIncluded) {
+      result.push(element);
+    }
+  }
+  return result;
+}
