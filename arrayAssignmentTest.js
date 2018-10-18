@@ -1,6 +1,6 @@
 const assert = require('assert');
 const {findEvenNumbers,findOddNumbers, sumOfNumbers,selectEverySecondElement}= require("./arrayAssignmentLib.js");
-const {greatestNumberFromList}= require("./arrayAssignmentLib.js");
+const {greatestNumberFromList, reverse, unique}= require("./arrayAssignmentLib.js");
 const {mapElementsLength, countOddNumbers, countEvenNumbers, countNumbersAboveThreshold, countNumbersBelowThreshold}= require("./arrayAssignmentLib.js");
 const findEvenNumbersTest = function() {
   assert.deepEqual(findEvenNumbers([]), []); 
@@ -74,6 +74,22 @@ const countNumbersBelowThresholdTest = function() {
   assert.equal(countNumbersBelowThreshold([10, 23, 11], 15), 2);
   assert.equal(countNumbersBelowThreshold([1, 2, 30, 40,33], 5), 2);
 }
+
+const reverseTest = function() {
+  assert.deepEqual(reverse([]),[]);
+  assert.deepEqual(reverse([1]), [1]);
+  assert.deepEqual(reverse([1, 2]), [2, 1]);
+  assert.deepEqual(reverse(["Aftab", "Shubham"]), ["Shubham", "Aftab"]);
+}
+
+
+const uniqueTest = function() {
+  assert.deepEqual(unique([]),[]);
+  assert.deepEqual(unique([1]), [1]);
+  assert.deepEqual(unique([1, 2]), [2, 1]);
+  assert.deepEqual(unique(["Aftab", "Shubham"]), ["Shubham", "Aftab"]);
+  assert.deepEqual(unique(["Aftab", "Shubham","Aftab"]), ["Shubham", "Aftab"]);
+}
 findEvenNumbersTest();
 findOddNumbersTest();
 sumOfNumbersTest();
@@ -84,3 +100,5 @@ countOddNumbersTest();
 countEvenNumbersTest();
 countNumbersAboveThresholdTest();
 countNumbersBelowThresholdTest();
+reverseTest();
+uniqueTest();

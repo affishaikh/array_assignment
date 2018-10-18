@@ -83,3 +83,11 @@ exports.countNumbersBelowThreshold = function(listOfNumbers, threshold) {
   }
   return result;
 }
+
+exports.reverse = function(list) {
+  let result = [];
+  for(let index = list.length-1; index >= 0; index--) {
+    result.push(list[index]);
+  }
+  return result;
+}
