@@ -107,3 +107,14 @@ exports.union = function(listOfElements1, listOfElements2) {
   let result = exports.unique(listOfElements1.concat(listOfElements2));
   return result;
 }
+
+exports.intersection = function(listOfElements1, listOfElements2) {
+  let result = [];
+  for(element of listOfElements1) {
+    let isIncluded = listOfElements2.includes(element); 
+    if(isIncluded) {
+      result.push(element);
+    }
+  }
+  return result;
+}
