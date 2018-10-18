@@ -1,7 +1,7 @@
 const assert = require('assert');
 const {findEvenNumbers,findOddNumbers, sumOfNumbers,selectEverySecondElement}= require("./arrayAssignmentLib.js");
 const {greatestNumberFromList, reverse, unique, union}= require("./arrayAssignmentLib.js");
-const {intersection, difference}= require("./arrayAssignmentLib.js");
+const {intersection, difference, isSubset}= require("./arrayAssignmentLib.js");
 const {mapElementsLength, countOddNumbers, countEvenNumbers, countNumbersAboveThreshold, countNumbersBelowThreshold}= require("./arrayAssignmentLib.js");
 const findEvenNumbersTest = function() {
   assert.deepEqual(findEvenNumbers([]), []); 
@@ -112,6 +112,13 @@ const differenceTest = function() {
   assert.deepEqual(difference([1, 2], [2, 3]), [1]);
   assert.deepEqual(difference(["Aftab", "Aftab","shaikh"], ["shaikh", 3]), ["Aftab"]);
 }
+
+const isSubsetTest = function() {
+  assert.deepEqual(isSubset([],[]),true);
+  assert.deepEqual(isSubset([1],[1]), true);
+  assert.deepEqual(isSubset([1, 2], [2, 3]), false);
+  assert.deepEqual(isSubset(["Aftab", "Aftab","shaikh"], ["shaikh" ]), true);
+}
 findEvenNumbersTest();
 findOddNumbersTest();
 sumOfNumbersTest();
@@ -127,3 +134,4 @@ uniqueTest();
 unionTest();
 intersectionTest();
 differenceTest();
+isSubsetTest();

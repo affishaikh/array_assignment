@@ -130,3 +130,14 @@ exports.difference = function(listOfElements1, listOfElements2) {
   }
   return result;
 }
+
+exports.isSubset = function(listOfElements1, listOfElements2) {
+  let result = true;
+  for(let index = 0; index < listOfElements2.length && result; index++) {
+    let isIncluded = listOfElements1.includes(listOfElements2[index]);
+    if(!isIncluded) {
+      result = false;
+    }
+  }
+  return result;
+}
