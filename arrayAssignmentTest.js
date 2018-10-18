@@ -95,6 +95,7 @@ const unionTest = function() {
   assert.deepEqual(union([],[]),[]);
   assert.deepEqual(union([1],[1]), [1]);
   assert.deepEqual(union([1, 2], [2, 3]), [1, 2, 3]);
+  assert.deepEqual(union(["Aftab", "Aftab","shaikh"], ["shaikh", 3]), ["Aftab", "shaikh", 3]);
 }
 findEvenNumbersTest();
 findOddNumbersTest();

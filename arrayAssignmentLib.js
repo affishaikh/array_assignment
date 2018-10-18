@@ -102,3 +102,8 @@ exports.unique = function(listOfElements) {
   }
   return result;
 }
+
+exports.union = function(listOfElements1, listOfElements2) {
+  let result = exports.unique(listOfElements1.concat(listOfElements2));
+  return result;
+}
