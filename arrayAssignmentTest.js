@@ -86,9 +86,9 @@ const reverseTest = function() {
 const uniqueTest = function() {
   assert.deepEqual(unique([]),[]);
   assert.deepEqual(unique([1]), [1]);
-  assert.deepEqual(unique([1, 2]), [2, 1]);
-  assert.deepEqual(unique(["Aftab", "Shubham"]), ["Shubham", "Aftab"]);
-  assert.deepEqual(unique(["Aftab", "Shubham","Aftab"]), ["Shubham", "Aftab"]);
+  assert.deepEqual(unique([1, 2]), [1, 2]);
+  assert.deepEqual(unique(["Aftab", "Shubham"]), ["Aftab", "Shubham"]);
+  assert.deepEqual(unique(["Aftab", "Shubham","Aftab"]), ["Aftab", "Shubham"]);
 }
 findEvenNumbersTest();
 findOddNumbersTest();

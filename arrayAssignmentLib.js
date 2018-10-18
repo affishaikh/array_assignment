@@ -91,3 +91,14 @@ exports.reverse = function(list) {
   }
   return result;
 }
+
+exports.unique = function(listOfElements) {
+  let result = [];
+  for(element of listOfElements) {
+    let isIncluded = result.includes(element)
+    if(!isIncluded) {
+    result.push(element);
+    }
+  }
+  return result;
+}
