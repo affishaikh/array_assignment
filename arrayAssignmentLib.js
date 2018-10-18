@@ -64,3 +64,13 @@ exports.countEvenNumbers = function(listOfNumbers) {
   return evenNumbersArray.length;
 }
 
+exports.countNumbersAboveThreshold = function(listOfNumbers, threshold) {
+  let countOfNumbers = 0;
+  for(number of listOfNumbers) {
+    if(number > threshold) {
+      countOfNumbers++;
+    }
+  }
+  return countOfNumbers;
+}
+
