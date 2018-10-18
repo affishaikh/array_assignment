@@ -1,7 +1,7 @@
 const assert = require('assert');
 const {findEvenNumbers,findOddNumbers, sumOfNumbers,selectEverySecondElement}= require("./arrayAssignmentLib.js");
 const {greatestNumberFromList}= require("./arrayAssignmentLib.js");
-const {mapElementsLength, countOddNumbers, countEvenNumbers, countNumbersAboveThreshold}= require("./arrayAssignmentLib.js");
+const {mapElementsLength, countOddNumbers, countEvenNumbers, countNumbersAboveThreshold, countNumbersBelowThreshold}= require("./arrayAssignmentLib.js");
 const findEvenNumbersTest = function() {
   assert.deepEqual(findEvenNumbers([]), []); 
   assert.deepEqual(findEvenNumbers([1]), []); 
@@ -66,6 +66,14 @@ const countNumbersAboveThresholdTest = function() {
   assert.equal(countNumbersAboveThreshold([10, 23, 11], 10), 2);
   assert.equal(countNumbersAboveThreshold([1, 2, 30, 40,33], 5), 3);
 }
+
+const countNumbersBelowThresholdTest = function() {
+  assert.equal(countNumbersBelowThreshold([], 1),0);
+  assert.equal(countNumbersBelowThreshold([1], 1), 0);
+  assert.equal(countNumbersBelowThreshold([1, 2], 2), 1);
+  assert.equal(countNumbersBelowThreshold([10, 23, 11], 15), 2);
+  assert.equal(countNumbersBelowThreshold([1, 2, 30, 40,33], 5), 2);
+}
 findEvenNumbersTest();
 findOddNumbersTest();
 sumOfNumbersTest();
@@ -75,3 +83,4 @@ mapElementsLengthTest();
 countOddNumbersTest();
 countEvenNumbersTest();
 countNumbersAboveThresholdTest();
+countNumbersBelowThresholdTest();
