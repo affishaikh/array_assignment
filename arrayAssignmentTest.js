@@ -1,6 +1,6 @@
 const assert = require('assert');
 const {findEvenNumbers,findOddNumbers, sumOfNumbers,selectEverySecondElement}= require("./arrayAssignmentLib.js");
-const {greatestNumberFromList, reverse, unique, union, reverseFibonacci}= require("./arrayAssignmentLib.js");
+const {greatestNumberFromList, reverse, unique, union, reverseFibonacci, findIndexOf}= require("./arrayAssignmentLib.js");
 const {intersection, difference, isSubset, zip, partition, averageOfNumbers}= require("./arrayAssignmentLib.js");
 const {mapElementsLength, countOddNumbers, countEvenNumbers, countNumbersAboveThreshold, countNumbersBelowThreshold}= require("./arrayAssignmentLib.js");
 const findEvenNumbersTest = function() {
@@ -146,8 +146,15 @@ const reverseFibonacciTest = function() {
 }
 
 const averageOfNumbersTest = function() {
-  assert.deepEqual(averageOfNumbers([10, 20, 30]),20);
-  assert.deepEqual(averageOfNumbers([2]),2);
+  assert.equal(averageOfNumbers([10, 20, 30]),20);
+  assert.equal(averageOfNumbers([2]),2);
+}
+
+const findIndexOfTest = function() {
+  assert.equal(findIndexOf([10, 20, 30],20), 1);
+  assert.equal(findIndexOf([2],2), 0);
+  assert.equal(findIndexOf([1, 10, 30],2), -1);
+  assert.equal(findIndexOf([],2), -1);
 }
 findEvenNumbersTest();
 findOddNumbersTest();
@@ -169,3 +176,4 @@ zipTest();
 partitionTest();
 reverseFibonacciTest();
 averageOfNumbersTest();
+findIndexOfTest();
