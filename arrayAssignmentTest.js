@@ -1,8 +1,9 @@
 const assert = require('assert');
 const {findEvenNumbers,findOddNumbers, sumOfNumbers,selectEverySecondElement}= require("./arrayAssignmentLib.js");
 const {greatestNumberFromList, reverse, unique, union, reverseFibonacci, findIndexOf}= require("./arrayAssignmentLib.js");
-const {intersection, difference, isSubset, zip, partition, averageOfNumbers}= require("./arrayAssignmentLib.js");
+const {intersection, difference, isSubset, zip, partition, averageOfNumbers, sortAscendingOrder, sortDescendingOrder}= require("./arrayAssignmentLib.js");
 const {mapElementsLength, countOddNumbers, countEvenNumbers, countNumbersAboveThreshold, countNumbersBelowThreshold}= require("./arrayAssignmentLib.js");
+const {extractDigits}= require("./arrayAssignmentLib.js");
 const findEvenNumbersTest = function() {
   assert.deepEqual(findEvenNumbers([]), []); 
   assert.deepEqual(findEvenNumbers([1]), []); 
@@ -156,6 +157,27 @@ const findIndexOfTest = function() {
   assert.equal(findIndexOf([1, 10, 30],2), -1);
   assert.equal(findIndexOf([],2), -1);
 }
+
+const sortAscendingOrderTest = function() {
+  assert.deepEqual(sortAscendingOrder([6, 8, 1, 56, 3]), [1,3,6,8,56]);
+  assert.deepEqual(sortAscendingOrder([]), []);
+  assert.deepEqual(sortAscendingOrder([1]), [1]);
+  assert.deepEqual(sortAscendingOrder([1,1]), [1,1]);
+  assert.deepEqual(sortAscendingOrder([1,1, -1, -2]), [-2, -1, 1, 1]);
+}
+
+const sortDescendingOrderTest = function() {
+  assert.deepEqual(sortDescendingOrder([6, 8, 1, 56, 3]), [56, 8, 6, 3, 1]);
+  assert.deepEqual(sortDescendingOrder([]), []);
+  assert.deepEqual(sortDescendingOrder([1]), [1]);
+  assert.deepEqual(sortDescendingOrder([1,1]), [1,1]);
+  assert.deepEqual(sortDescendingOrder([1,1, -1, -2]), [1, 1, -1, -2]);
+}
+
+const extractDigitsTest = function() {
+  assert.deepEqual(extractDigits(1234), [1, 2, 3, 4]);
+  assert.deepEqual(extractDigits(1), [1]);
+}
 findEvenNumbersTest();
 findOddNumbersTest();
 sumOfNumbersTest();
@@ -177,3 +199,6 @@ partitionTest();
 reverseFibonacciTest();
 averageOfNumbersTest();
 findIndexOfTest();
+sortAscendingOrderTest();
+sortDescendingOrderTest();
+extractDigitsTest();

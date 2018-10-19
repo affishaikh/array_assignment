@@ -197,3 +197,48 @@ exports.averageOfNumbers = function(listOfNumbers) {
   result = result/listOfNumbers.length;
   return result;
 }
+
+exports.findIndexOf = function(listOfNumbers, requiredNumber) {
+  let result = -1;
+  for(let index = 0; index < listOfNumbers.length; index++) {
+    if(listOfNumbers[index] == requiredNumber) {
+      result = index; 
+    }
+  }
+  return result;
+}
+
+exports.sortAscendingOrder = function(listOfNumbers) {
+  for(let row = 0; row < listOfNumbers.length-1; row++) {
+    for(let column = row+1; column < listOfNumbers.length; column++) {
+      if(listOfNumbers[row] > listOfNumbers[column]) {
+        temporarySwapVar = listOfNumbers[row];
+        listOfNumbers[row] = listOfNumbers[column];
+        listOfNumbers[column] = temporarySwapVar;
+      }
+    }
+  }
+  return listOfNumbers;
+}
+
+exports.sortDescendingOrder = function(listOfNumbers) {
+  for(let row = 0; row < listOfNumbers.length-1; row++) {
+    for(let column = row+1; column < listOfNumbers.length; column++) {
+      if(listOfNumbers[row] < listOfNumbers[column]) {
+        temporarySwapVar = listOfNumbers[row];
+        listOfNumbers[row] = listOfNumbers[column];
+        listOfNumbers[column] = temporarySwapVar;
+      }
+    }
+  }
+  return listOfNumbers;
+}
+
+exports.extractDigits = function(givenNumber) {
+  let result = [];
+  let givenNumberStr = givenNumber.toString();
+  for(digit of givenNumberStr) {
+    result.push(+digit);
+  }
+  return result;
+}
