@@ -1,7 +1,7 @@
 const assert = require('assert');
 const {findEvenNumbers,findOddNumbers, sumOfNumbers,selectEverySecondElement}= require("./arrayAssignmentLib.js");
 const {greatestNumberFromList, reverse, unique, union}= require("./arrayAssignmentLib.js");
-const {intersection, difference, isSubset}= require("./arrayAssignmentLib.js");
+const {intersection, difference, isSubset, zip, partition}= require("./arrayAssignmentLib.js");
 const {mapElementsLength, countOddNumbers, countEvenNumbers, countNumbersAboveThreshold, countNumbersBelowThreshold}= require("./arrayAssignmentLib.js");
 const findEvenNumbersTest = function() {
   assert.deepEqual(findEvenNumbers([]), []); 
@@ -119,6 +119,28 @@ const isSubsetTest = function() {
   assert.deepEqual(isSubset([1, 2], [2, 3]), false);
   assert.deepEqual(isSubset(["Aftab", "Aftab","shaikh"], ["shaikh" ]), true);
 }
+
+const zipTest = function() {
+  assert.deepEqual(zip([],[]),[]);
+  assert.deepEqual(zip([1],[]),[]);
+  assert.deepEqual(zip([],[1]),[]);
+  assert.deepEqual(zip([1],[1]), [[1,1]]);
+  assert.deepEqual(zip([1, 2], [2, 3]),[[1,2],[2,3]]);
+  assert.deepEqual(zip([1, 2, 3], [4, 5, 6]),[[1,4],[2,5],[3,6]]);
+  assert.deepEqual(zip([1, 2, 3], [4, 5 ]),[[1,4],[2,5]]);
+  assert.deepEqual(zip(["Aftab", "Aftab","shaikh"], ["shaikh" ]), [["Aftab", "shaikh"]]);
+}
+
+const partitionTest = function() {
+  assert.deepEqual(partition([],4),[]);
+  assert.deepEqual(partition([1],),[]);
+  assert.deepEqual(partition([],[1]),[]);
+  assert.deepEqual(partition([1],[1]), [[1,1]]);
+  assert.deepEqual(partition([1, 2], [2, 3]),[[1,2],[2,3]]);
+  assert.deepEqual(partition([1, 2, 3], [4, 5, 6]),[[1,4],[2,5],[3,6]]);
+  assert.deepEqual(partition([1, 2, 3], [4, 5 ]),[[1,4],[2,5]]);
+  assert.deepEqual(partition(["Aftab", "Aftab","shaikh"], ["shaikh" ]), [["Aftab", "shaikh"]]);
+}
 findEvenNumbersTest();
 findOddNumbersTest();
 sumOfNumbersTest();
@@ -135,3 +157,5 @@ unionTest();
 intersectionTest();
 differenceTest();
 isSubsetTest();
+zipTest();
+partitionTest();

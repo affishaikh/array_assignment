@@ -141,3 +141,14 @@ exports.isSubset = function(listOfElements1, listOfElements2) {
   }
   return result;
 }
+
+exports.zip = function(listOfElements1, listOfElements2) {
+  let result = [];
+  let lengthOfList1 = listOfElements1.length;
+  let lengthOfList2= listOfElements2.length;
+  let smallestArrayLength = (lengthOfList1>lengthOfList2) ? lengthOfList2 : lengthOfList1;
+  for(let index = 0; index < smallestArrayLength; index++) {
+    result.push([listOfElements1[index], listOfElements2[index]]);
+  }
+  return result;
+}
