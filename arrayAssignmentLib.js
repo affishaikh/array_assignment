@@ -200,7 +200,7 @@ exports.averageOfNumbers = function(listOfNumbers) {
 
 exports.findIndexOf = function(listOfNumbers, requiredNumber) {
   let result = -1;
-  for(let index = 0; index < listOfNumbers.length; index++) {
+  for(let index = 0; index < listOfNumbers.length && result == -1; index++) {
     if(listOfNumbers[index] == requiredNumber) {
       result = index; 
     }
@@ -239,6 +239,18 @@ exports.extractDigits = function(givenNumber) {
   let givenNumberStr = givenNumber.toString();
   for(digit of givenNumberStr) {
     result.push(+digit);
+  }
+  return result;
+}
+
+exports.rotate = function(listOfElements, referenceElement) {
+  let result = [];
+  let referenceElementIndex = exports.findIndexOf(listOfElements,referenceElement);
+  for(let index = referenceElementIndex+1; index < listOfElements.length; index++) {
+    result.push(listOfElements[index]);
+  }
+  for(let index = 0; index <= referenceElementIndex; index++) {
+    result.push(listOfElements[index]);
   }
   return result;
 }

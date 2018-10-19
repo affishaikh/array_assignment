@@ -3,7 +3,7 @@ const {findEvenNumbers,findOddNumbers, sumOfNumbers,selectEverySecondElement}= r
 const {greatestNumberFromList, reverse, unique, union, reverseFibonacci, findIndexOf}= require("./arrayAssignmentLib.js");
 const {intersection, difference, isSubset, zip, partition, averageOfNumbers, sortAscendingOrder, sortDescendingOrder}= require("./arrayAssignmentLib.js");
 const {mapElementsLength, countOddNumbers, countEvenNumbers, countNumbersAboveThreshold, countNumbersBelowThreshold}= require("./arrayAssignmentLib.js");
-const {extractDigits}= require("./arrayAssignmentLib.js");
+const {extractDigits, rotate}= require("./arrayAssignmentLib.js");
 const findEvenNumbersTest = function() {
   assert.deepEqual(findEvenNumbers([]), []); 
   assert.deepEqual(findEvenNumbers([1]), []); 
@@ -178,6 +178,11 @@ const extractDigitsTest = function() {
   assert.deepEqual(extractDigits(1234), [1, 2, 3, 4]);
   assert.deepEqual(extractDigits(1), [1]);
 }
+
+const rotateTest = function() {
+  assert.deepEqual(rotate([1,2,3,4,5],3), [4,5,1,2,3]);
+  assert.deepEqual(rotate([1,2,3,4,5],2), [3,4,5,1,2]);
+}
 findEvenNumbersTest();
 findOddNumbersTest();
 sumOfNumbersTest();
@@ -202,3 +207,4 @@ findIndexOfTest();
 sortAscendingOrderTest();
 sortDescendingOrderTest();
 extractDigitsTest();
+rotateTest();
