@@ -3,7 +3,7 @@ const {findEvenNumbers,findOddNumbers, sumOfNumbers,selectEverySecondElement}= r
 const {greatestNumberFromList, reverse, unique, union, reverseFibonacci, findIndexOf}= require("./arrayAssignmentLib.js");
 const {intersection, difference, isSubset, zip, partition, averageOfNumbers, sortAscendingOrder, sortDescendingOrder}= require("./arrayAssignmentLib.js");
 const {mapElementsLength, countOddNumbers, countEvenNumbers, countNumbersAboveThreshold, countNumbersBelowThreshold}= require("./arrayAssignmentLib.js");
-const {extractDigits, rotate}= require("./arrayAssignmentLib.js");
+const {extractDigits, rotate, lowestNumberFromList}= require("./arrayAssignmentLib.js");
 const findEvenNumbersTest = function() {
   assert.deepEqual(findEvenNumbers([]), []); 
   assert.deepEqual(findEvenNumbers([1]), []); 
@@ -40,7 +40,11 @@ const greatestNumberFromListTest = function() {
   assert.deepEqual(greatestNumberFromList([1, 45, 13, 90, 98, 1001]), 1001);
 }
 
-
+const lowestNumberFromListTest = function() {
+  assert.deepEqual(lowestNumberFromList([1]), 1);
+  assert.deepEqual(lowestNumberFromList([1, 45, 13]), 1);
+  assert.deepEqual(lowestNumberFromList([1, 45, 13, 90, 98, 1001]), 1);
+}
 const mapElementsLengthTest = function() {
   assert.deepEqual(mapElementsLength(["a"]), [1]);
   assert.deepEqual(mapElementsLength(["aftab"]), [5]);
@@ -188,6 +192,7 @@ findOddNumbersTest();
 sumOfNumbersTest();
 selectEverySecondElementTest();
 greatestNumberFromListTest();
+lowestNumberFromListTest();
 mapElementsLengthTest();
 countOddNumbersTest();
 countEvenNumbersTest();

@@ -46,6 +46,16 @@ exports.greatestNumberFromList = function(listOfNumbers) {
   return result;
 }
 
+exports.lowestNumberFromList = function(listOfNumbers) {
+  let result = listOfNumbers[0];
+  for(number of listOfNumbers) {
+    if(result>number){
+      result = number;
+    }
+  }
+  return result;
+}
+
 exports.mapElementsLength = function(listOfElements) {
   let result = [];
   for(element of listOfElements) {
