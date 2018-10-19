@@ -152,3 +152,48 @@ exports.zip = function(listOfElements1, listOfElements2) {
   }
   return result;
 }
+
+exports.partition = function(listOfNumbers, threshold) {
+  let numbersAboveThreshold = [];
+  let numbersBelowThreshold = [];
+  if(!listOfNumbers.length) {
+    return -1;
+  }
+  for(number of listOfNumbers) {
+    if(number <= threshold) {
+      numbersBelowThreshold.push(number);
+    } else {
+      numbersAboveThreshold.push(number);
+    }
+  }
+  if(!numbersBelowThreshold.length) {
+    return numbersAboveThreshold;
+  }
+  if(!numbersAboveThreshold.length) {
+    return numbersBelowThreshold;
+  }
+  return [numbersBelowThreshold, numbersAboveThreshold];
+}
+
+exports.reverseFibonacci = function(limit) {
+  let num1 = -1;
+  let num2 = 1;
+  let result = [];
+  for(let index = 0; index < limit; index++) {
+    let numberToBePushed = num1 + num2;
+    num1 = num2;
+    num2 = numberToBePushed;
+    result.push(numberToBePushed);
+  }
+  result = exports.reverse(result);
+  return result;
+}
+
+exports.averageOfNumbers = function(listOfNumbers) {
+  let result = 0;
+  for(number of listOfNumbers) {
+    result = result + number;
+  }
+  result = result/listOfNumbers.length;
+  return result;
+}
