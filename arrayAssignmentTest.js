@@ -132,14 +132,9 @@ const zipTest = function() {
 }
 
 const partitionTest = function() {
-  assert.deepEqual(partition([],4),[]);
-  assert.deepEqual(partition([1],),[]);
-  assert.deepEqual(partition([],[1]),[]);
-  assert.deepEqual(partition([1],[1]), [[1,1]]);
-  assert.deepEqual(partition([1, 2], [2, 3]),[[1,2],[2,3]]);
-  assert.deepEqual(partition([1, 2, 3], [4, 5, 6]),[[1,4],[2,5],[3,6]]);
-  assert.deepEqual(partition([1, 2, 3], [4, 5 ]),[[1,4],[2,5]]);
-  assert.deepEqual(partition(["Aftab", "Aftab","shaikh"], ["shaikh" ]), [["Aftab", "shaikh"]]);
+  assert.deepEqual(partition([],4),-1);
+  assert.deepEqual(partition([1],4),[1]);
+  assert.deepEqual(partition([5],4),[5]);
 }
 findEvenNumbersTest();
 findOddNumbersTest();
