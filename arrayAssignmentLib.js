@@ -42,6 +42,25 @@ const evenNumbersCounter = function(result, element) {
   return result;
 }
 
+const createAboveNumberCounter = function(threshold) {
+  return function(result, element) {
+  if(element > threshold) result++;
+  return result;
+  }
+}
+
+const createBelowNumberCounter = function(threshold) {
+  return function(result, element) {
+  if(element < threshold) result++;
+  return result;
+  }
+}
+
+const reverser  = function(result, element) {
+  result.unshift(element);
+  return result;
+}
+
 exports.findOddNumbers = function(listOfNumbers) {
   let result = [];
   result = listOfNumbers.filter(isOdd);
@@ -99,29 +118,20 @@ exports.countEvenNumbers = function(listOfNumbers) {
 
 exports.countNumbersAboveThreshold = function(listOfNumbers, threshold) {
   let result = 0;
-  for(number of listOfNumbers) {
-    if(number > threshold) {
-      result++;
-    }
-  }
+  let numberCounter = createAboveNumberCounter(threshold);
+  result = listOfNumbers.reduce(numberCounter, 0);
   return result;
 }
 
 exports.countNumbersBelowThreshold = function(listOfNumbers, threshold) {
   let result = 0;
-  for(number of listOfNumbers) {
-    if(number < threshold) {
-      result++;
-    }
-  }
+  let numberCounter = createBelowNumberCounter(threshold);
+  result = listOfNumbers.reduce(numberCounter, 0);
   return result;
 }
 
 exports.reverse = function(list) {
-  let result = [];
-  for(let index = list.length-1; index >= 0; index--) {
-    result.push(list[index]);
-  }
+  result = list.reduce(reverser, [])
   return result;
 }
 
