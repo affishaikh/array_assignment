@@ -1,9 +1,31 @@
 const assert = require('assert');
-const {findEvenNumbers,findOddNumbers, sumOfNumbers,selectEverySecondElement}= require("./arrayAssignmentLib.js");
-const {greatestNumberFromList, reverse, unique, union, reverseFibonacci, findIndexOf}= require("./arrayAssignmentLib.js");
-const {intersection, difference, isSubset, zip, partition, averageOfNumbers, sortAscendingOrder, sortDescendingOrder}= require("./arrayAssignmentLib.js");
-const {mapElementsLength, countOddNumbers, countEvenNumbers, countNumbersAboveThreshold, countNumbersBelowThreshold}= require("./arrayAssignmentLib.js");
-const {extractDigits, rotate, lowestNumberFromList}= require("./arrayAssignmentLib.js");
+const {findEvenNumbers,
+  findOddNumbers,
+  sumOfNumbers,
+  selectEverySecondElement,
+  greatestNumberFromList,
+  reverse,
+  unique,
+  union,
+  reverseFibonacci,
+  findIndexOf,
+  intersection,
+  difference,
+  isSubset,
+  zip,
+  partition,
+  averageOfNumbers,
+  sortAscendingOrder,
+  sortDescendingOrder,
+  mapElementsLength,
+  countOddNumbers,
+  countEvenNumbers,
+  countNumbersAboveThreshold,
+  countNumbersBelowThreshold,
+  extractDigits,
+  rotate,
+  lowestNumberFromList}= require("./arrayAssignmentLib.js");
+
 const findEvenNumbersTest = function() {
   assert.deepEqual(findEvenNumbers([]), []); 
   assert.deepEqual(findEvenNumbers([1]), []); 
@@ -45,6 +67,7 @@ const lowestNumberFromListTest = function() {
   assert.deepEqual(lowestNumberFromList([1, 45, 13]), 1);
   assert.deepEqual(lowestNumberFromList([1, 45, 13, 90, 98, 1001]), 1);
 }
+
 const mapElementsLengthTest = function() {
   assert.deepEqual(mapElementsLength(["a"]), [1]);
   assert.deepEqual(mapElementsLength(["aftab"]), [5]);
@@ -87,7 +110,6 @@ const reverseTest = function() {
   assert.deepEqual(reverse([1, 2]), [2, 1]);
   assert.deepEqual(reverse(["Aftab", "Shubham"]), ["Shubham", "Aftab"]);
 }
-
 
 const uniqueTest = function() {
   assert.deepEqual(unique([]),[]);
@@ -187,6 +209,7 @@ const rotateTest = function() {
   assert.deepEqual(rotate([1,2,3,4,5],3), [4,5,1,2,3]);
   assert.deepEqual(rotate([1,2,3,4,5],2), [3,4,5,1,2]);
 }
+
 findEvenNumbersTest();
 findOddNumbersTest();
 sumOfNumbersTest();

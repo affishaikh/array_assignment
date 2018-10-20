@@ -1,77 +1,100 @@
+const isOdd = function(num) {
+  let result = false;
+  if(num%2) result = true;
+  return result;
+}
+
+const isEven = function(num) {
+  let result = false;
+  if(!(num%2)) result = true;
+  return result;
+}
+
+const addition = function(sum, element) {
+  return sum+element;
+}
+
+const isSecondElement = function(element, index) {
+  let result = false;
+  if(!(index%2)) {
+    result =  true;
+  }
+  return result;
+}
+
+const greatestNumberFinder = function(greaterNumber, element) {
+  if(element > greaterNumber) greaterNumber = element;
+  return greaterNumber;
+}
+
+const lowestNumberFinder = function(lowestNumber, element) {
+  if(element < lowestNumber) lowestNumber = element;
+  return lowestNumber;
+}
+
+const oddNumbersCounter = function(result, element) {
+  if(element%2) result++;
+  return result;
+}
+
+const evenNumbersCounter = function(result, element) {
+  if(!(element%2)) result++;
+  return result;
+}
+
 exports.findOddNumbers = function(listOfNumbers) {
   let result = [];
-  for(number of listOfNumbers) {
-    let isOdd = (number % 2 == 1);
-    if(isOdd) {
-      result = result.concat(number);
-    }
-  }
+  result = listOfNumbers.filter(isOdd);
   return result;
 }
 
 exports.findEvenNumbers = function(listOfNumbers) {
   let result = [];
-  for(number of listOfNumbers) {
-    let isEven = (number % 2 == 0);
-    if(isEven) {
-      result = result.concat(number);
-    }
-  }
+  result = listOfNumbers.filter(isEven);
   return result;
 }
 
 exports.sumOfNumbers = function(listOfNumbers) {
   let sum = 0;
-  for(number of listOfNumbers) {
-    sum = sum + number;
-  }
+  if(!listOfNumbers.length) {return 0;}
+  sum = listOfNumbers.reduce(addition);
   return sum;
 }
 
 exports.selectEverySecondElement = function(listOfNumbers) {
   let result = [];
-  for(let index = 0; index < listOfNumbers.length; index = index + 2) {
-    result.push(listOfNumbers[index]);
-  }
+  result = listOfNumbers.filter(isSecondElement);
   return result;
 }
 
 exports.greatestNumberFromList = function(listOfNumbers) {
   let result = 0;
-  for(number of listOfNumbers) {
-    if(result<number){
-      result = number;
-    }
-  }
+  result = listOfNumbers.reduce(greatestNumberFinder);
   return result;
 }
 
 exports.lowestNumberFromList = function(listOfNumbers) {
-  let result = listOfNumbers[0];
-  for(number of listOfNumbers) {
-    if(result>number){
-      result = number;
-    }
-  }
+  let result = 0;
+  result = listOfNumbers.reduce(lowestNumberFinder);
   return result;
 }
 
 exports.mapElementsLength = function(listOfElements) {
   let result = [];
-  for(element of listOfElements) {
-    result.push(element.length); 
-  }
+  result = listOfElements.map(element => element.length)
   return result;
 }
 
 exports.countOddNumbers = function(listOfNumbers) {
-  let oddNumbersArray = exports.findOddNumbers(listOfNumbers);
-  return oddNumbersArray.length;
+  let result = 0;
+  result = listOfNumbers.reduce(oddNumbersCounter,0);
+  return result;
 }
 
 exports.countEvenNumbers = function(listOfNumbers) {
-  let evenNumbersArray = exports.findEvenNumbers(listOfNumbers);
-  return evenNumbersArray.length;
+  let result = 0;
+  result = listOfNumbers.reduce(evenNumbersCounter,0);
+  return result;
 }
 
 exports.countNumbersAboveThreshold = function(listOfNumbers, threshold) {
@@ -107,7 +130,7 @@ exports.unique = function(listOfElements) {
   for(element of listOfElements) {
     let isIncluded = result.includes(element)
     if(!isIncluded) {
-    result.push(element);
+      result.push(element);
     }
   }
   return result;
