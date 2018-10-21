@@ -141,10 +141,10 @@ const differenceTest = function() {
 }
 
 const isSubsetTest = function() {
-  assert.deepEqual(isSubset([],[]),true);
-  assert.deepEqual(isSubset([1],[1]), true);
-  assert.deepEqual(isSubset([1, 2], [2, 3]), false);
-  assert.deepEqual(isSubset(["Aftab", "Aftab","shaikh"], ["shaikh" ]), true);
+  assert.equal(isSubset([],[]),true);
+  assert.equal(isSubset([1],[1]), true);
+  assert.equal(isSubset([1, 2], [2, 3]), false);
+  assert.equal(isSubset(["Aftab", "Aftab","shaikh"], ["shaikh"]), true);
 }
 
 const zipTest = function() {

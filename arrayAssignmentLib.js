@@ -76,7 +76,6 @@ const createIntersectionFinder= function(listOfElements2) {
   }
 }
 
-
 const createDifferenceFinder= function(listOfElements2) {
   return function(result, element) {
     let isIncluded = listOfElements2.includes(element); 
@@ -87,6 +86,12 @@ const createDifferenceFinder= function(listOfElements2) {
   }
 }
 
+const createIsSubsetChecker = function(listOfElements1) {
+  return function(element) {
+    result = listOfElements1.includes(element);
+    return result;
+  }
+}
 exports.findOddNumbers = function(listOfNumbers) {
   let result = [];
   result = listOfNumbers.filter(isOdd);
@@ -183,25 +188,11 @@ exports.difference = function(listOfElements1, listOfElements2) {
   let differenceFinder = createDifferenceFinder(listOfElements2);
   let result = uniqueList1.reduce(differenceFinder,[]);
   return result;
-  /*let uniqueElementsOfList1 = exports.findUnique(listOfElements1);
-  let result = [];
-  for(element of uniqueElementsOfList1) {
-    let isIncluded = listOfElements2.includes(element); 
-    if(!isIncluded) {
-      result.push(element);
-    }
-  }
-  return result;*/
 }
 
 exports.isSubset = function(listOfElements1, listOfElements2) {
-  let result = true;
-  for(let index = 0; index < listOfElements2.length && result; index++) {
-    let isIncluded = listOfElements1.includes(listOfElements2[index]);
-    if(!isIncluded) {
-      result = false;
-    }
-  }
+  let isSubsetChecker = createIsSubsetChecker(listOfElements1);
+  let result = listOfElements2.every(isSubsetChecker);
   return result;
 }
 
