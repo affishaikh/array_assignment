@@ -61,6 +61,20 @@ const reverser  = function(result, element) {
   return result;
 }
 
+const uniqueFinder = function(result, element) {
+  if(!result.includes(element)) result.push(element);
+  return result;
+}
+
+const createIntersectionFinder= function(listOfElements2) {
+  return function(result, element) {
+    let isIncluded = listOfElements2.includes(element); 
+    if(isIncluded) {
+      result.push(element);
+    }
+    return result;
+  }
+}
 exports.findOddNumbers = function(listOfNumbers) {
   let result = [];
   result = listOfNumbers.filter(isOdd);
@@ -135,35 +149,25 @@ exports.reverse = function(list) {
   return result;
 }
 
-exports.unique = function(listOfElements) {
-  let result = [];
-  for(element of listOfElements) {
-    let isIncluded = result.includes(element)
-    if(!isIncluded) {
-      result.push(element);
-    }
-  }
+exports.findUnique = function(listOfElements) {
+  let result = listOfElements.reduce(uniqueFinder, []);
   return result;
 }
 
 exports.union = function(listOfElements1, listOfElements2) {
-  let result = exports.unique(listOfElements1.concat(listOfElements2));
+  let result = exports.findUnique(listOfElements1.concat(listOfElements2));
   return result;
 }
 
 exports.intersection = function(listOfElements1, listOfElements2) {
-  let result = [];
-  for(element of listOfElements1) {
-    let isIncluded = listOfElements2.includes(element); 
-    if(isIncluded) {
-      result.push(element);
-    }
-  }
+  let uniqueList1 = exports.findUnique(listOfElements1);
+  let intersectionFinder = createIntersectionFinder(listOfElements2);
+  let result = listOfElements1.reduce(intersectionFinder,[]);
   return result;
 }
 
 exports.difference = function(listOfElements1, listOfElements2) {
-  let uniqueElementsOfList1 = exports.unique(listOfElements1);
+  let uniqueElementsOfList1 = exports.findUnique(listOfElements1);
   let result = [];
   for(element of uniqueElementsOfList1) {
     let isIncluded = listOfElements2.includes(element); 

@@ -5,7 +5,7 @@ const {findEvenNumbers,
   selectEverySecondElement,
   greatestNumberFromList,
   reverse,
-  unique,
+  findUnique,
   union,
   reverseFibonacci,
   findIndexOf,
@@ -111,12 +111,12 @@ const reverseTest = function() {
   assert.deepEqual(reverse(["Aftab", "Shubham"]), ["Shubham", "Aftab"]);
 }
 
-const uniqueTest = function() {
-  assert.deepEqual(unique([]),[]);
-  assert.deepEqual(unique([1]), [1]);
-  assert.deepEqual(unique([1, 2]), [1, 2]);
-  assert.deepEqual(unique(["Aftab", "Shubham"]), ["Aftab", "Shubham"]);
-  assert.deepEqual(unique(["Aftab", "Shubham","Aftab"]), ["Aftab", "Shubham"]);
+const findUniqueTest = function() {
+  assert.deepEqual(findUnique([]),[]);
+  assert.deepEqual(findUnique([1]), [1]);
+  assert.deepEqual(findUnique([1, 2]), [1, 2]);
+  assert.deepEqual(findUnique(["Aftab", "Shubham"]), ["Aftab", "Shubham"]);
+  assert.deepEqual(findUnique(["Aftab", "Shubham","Aftab"]), ["Aftab", "Shubham"]);
 }
 
 const unionTest = function() {
@@ -222,7 +222,7 @@ countEvenNumbersTest();
 countNumbersAboveThresholdTest();
 countNumbersBelowThresholdTest();
 reverseTest();
-uniqueTest();
+findUniqueTest();
 unionTest();
 intersectionTest();
 differenceTest();
