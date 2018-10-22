@@ -99,6 +99,15 @@ const createZipper = function(largestArray) {
   }
 }
 
+const createFibonacciFinder = function(num1, num2) {
+  return function(element) {
+    let numberInFibonacciSeries = num1 + num2;
+    num1 = num2;
+    num2 = numberInFibonacciSeries;
+    return numberInFibonacciSeries;
+  }
+}
+
 exports.findOddNumbers = function(listOfNumbers) {
   let result = [];
   result = listOfNumbers.filter(isOdd);
@@ -215,9 +224,6 @@ exports.zip = function(listOfElements1, listOfElements2) {
   }
   let zipper = createZipper(largestArray);
   result = smallestArray.map(zipper);
-  /*for(let index = 0; index < smallestArrayLength; index++) {
-    result.push([listOfElements1[index], listOfElements2[index]]);
-  }*/
   return result;
 }
 
@@ -246,13 +252,8 @@ exports.partition = function(listOfNumbers, threshold) {
 exports.reverseFibonacci = function(limit) {
   let num1 = -1;
   let num2 = 1;
-  let result = [];
-  for(let index = 0; index < limit; index++) {
-    let numberToBePushed = num1 + num2;
-    num1 = num2;
-    num2 = numberToBePushed;
-    result.push(numberToBePushed);
-  }
+  let fibonacciFinder = createFibonacciFinder(num1, num2);
+  let result = new Array(limit).fill(0).map(fibonacciFinder);
   result = exports.reverse(result);
   return result;
 }
