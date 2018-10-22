@@ -108,6 +108,13 @@ const createFibonacciFinder = function(num1, num2) {
   }
 }
 
+const createAverageOfNumbersCalculator = function(numberOfElements) {
+  return function(result, element) {
+    result = result + element/numberOfElements;
+    return result;
+  }
+}
+
 exports.findOddNumbers = function(listOfNumbers) {
   let result = [];
   result = listOfNumbers.filter(isOdd);
@@ -259,11 +266,8 @@ exports.reverseFibonacci = function(limit) {
 }
 
 exports.averageOfNumbers = function(listOfNumbers) {
-  let result = 0;
-  for(number of listOfNumbers) {
-    result = result + number;
-  }
-  result = result/listOfNumbers.length;
+  let averageOfNumbersCalculator = createAverageOfNumbersCalculator(listOfNumbers.length); 
+  let result = listOfNumbers.reduce(averageOfNumbersCalculator,0);
   return result;
 }
 

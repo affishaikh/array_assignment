@@ -175,6 +175,7 @@ const reverseFibonacciTest = function() {
 const averageOfNumbersTest = function() {
   assert.equal(averageOfNumbers([10, 20, 30]),20);
   assert.equal(averageOfNumbers([2]),2);
+  assert.equal(averageOfNumbers([]),0);
 }
 
 const findIndexOfTest = function() {
