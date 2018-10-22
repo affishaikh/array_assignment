@@ -158,12 +158,12 @@ const zipTest = function() {
   assert.deepEqual(zip(["Aftab", "Aftab","shaikh"], ["shaikh" ]), [["shaikh", "Aftab"]]);
 }
 
-/*const partitionTest = function() {
+const partitionTest = function() {
   assert.deepEqual(partition([],4),[[],[]]);
   assert.deepEqual(partition([1],4),[[1],[]]);
-  assert.deepEqual(partition([5],4),[[5],[]]);
+  assert.deepEqual(partition([5],4),[[],[5]]);
   assert.deepEqual(partition([10, 2, 4, 5, 60],4),[[2, 4],[10, 5, 60]]);
-}*/
+}
 
 const reverseFibonacciTest = function() {
   assert.deepEqual(reverseFibonacci(1),[0]);
@@ -230,7 +230,7 @@ intersectionTest();
 differenceTest();
 isSubsetTest();
 zipTest();
-//partitionTest();
+partitionTest();
 reverseFibonacciTest();
 averageOfNumbersTest();
 findIndexOfTest();

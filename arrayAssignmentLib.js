@@ -101,6 +101,17 @@ const createZipper = function(largestArray, index) {
   }
 }
 
+const createPartitionCreator = function(threshold) {
+  return function(result, element) {
+    let index = 1;
+    if(element <= threshold) {
+      index = 0;
+    }
+    result[index].push(element);
+    return result;
+  }
+}
+
 const createFibonacciFinder = function(num1, num2) {
   return function(element) {
     let numberInFibonacciSeries = num1 + num2;
@@ -269,25 +280,12 @@ exports.zip = function(listOfElements1, listOfElements2) {
 }
 
 exports.partition = function(listOfNumbers, threshold) {
-  let numbersAboveThreshold = [];
-  let numbersBelowThreshold = [];
-  if(!listOfNumbers.length) {
-    return -1;
-  }
-  for(number of listOfNumbers) {
-    if(number <= threshold) {
-      numbersBelowThreshold.push(number);
-    } else {
-      numbersAboveThreshold.push(number);
-    }
-  }
-  if(!numbersBelowThreshold.length) {
-    return numbersAboveThreshold;
-  }
-  if(!numbersAboveThreshold.length) {
-    return numbersBelowThreshold;
-  }
-  return [numbersBelowThreshold, numbersAboveThreshold];
+  let partitionCreator = createPartitionCreator(threshold);
+  let initialPartiton = [];
+  initialPartiton[0] = [];
+  initialPartiton[1] = [];
+  let result = listOfNumbers.reduce(partitionCreator,initialPartiton);
+  return result;
 }
 
 exports.reverseFibonacci = function(limit) {
