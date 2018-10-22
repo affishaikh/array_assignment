@@ -93,9 +93,11 @@ const createIsSubsetChecker = function(listOfElements1) {
   }
 }
 
-const createZipper = function(largestArray) {
-  return function(element, index) {
-    return [element, largestArray[index]];
+const createZipper = function(largestArray, index) {
+  return function(element) {
+    let returnValue=[element,largestArray[index]];
+    index++;
+    return returnValue;
   }
 }
 
@@ -111,6 +113,16 @@ const createFibonacciFinder = function(num1, num2) {
 const createAverageOfNumbersCalculator = function(numberOfElements) {
   return function(result, element) {
     result = result + element/numberOfElements;
+    return result;
+  }
+}
+
+const createIndexFinder = function(requiredNumber) {
+  return function(result, element) {
+    if(element === requiredNumber && result.requiredIndex === -1) {
+      result.requiredIndex = result.index;
+    }
+    result.index++;
     return result;
   }
 }
@@ -229,7 +241,7 @@ exports.zip = function(listOfElements1, listOfElements2) {
     smallestArray = listOfElements2;
     largestArray = listOfElements1;
   }
-  let zipper = createZipper(largestArray);
+  let zipper = createZipper(largestArray, 0);
   result = smallestArray.map(zipper);
   return result;
 }
@@ -272,12 +284,8 @@ exports.averageOfNumbers = function(listOfNumbers) {
 }
 
 exports.findIndexOf = function(listOfNumbers, requiredNumber) {
-  let result = -1;
-  for(let index = 0; index < listOfNumbers.length && result == -1; index++) {
-    if(listOfNumbers[index] == requiredNumber) {
-      result = index; 
-    }
-  }
+  let indexFinder = createIndexFinder(requiredNumber);
+  let result = listOfNumbers.reduce(indexFinder, {index : 0, requiredIndex : -1}).requiredIndex;
   return result;
 }
 
