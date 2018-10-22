@@ -92,6 +92,13 @@ const createIsSubsetChecker = function(listOfElements1) {
     return result;
   }
 }
+
+const createZipper = function(largestArray) {
+  return function(element, index) {
+    return [element, largestArray[index]];
+  }
+}
+
 exports.findOddNumbers = function(listOfNumbers) {
   let result = [];
   result = listOfNumbers.filter(isOdd);
@@ -200,10 +207,17 @@ exports.zip = function(listOfElements1, listOfElements2) {
   let result = [];
   let lengthOfList1 = listOfElements1.length;
   let lengthOfList2= listOfElements2.length;
-  let smallestArrayLength = (lengthOfList1>lengthOfList2) ? lengthOfList2 : lengthOfList1;
-  for(let index = 0; index < smallestArrayLength; index++) {
-    result.push([listOfElements1[index], listOfElements2[index]]);
+  let smallestArray = listOfElements1;
+  let largestArray = listOfElements2;
+  if(lengthOfList1>lengthOfList2) {
+    smallestArray = listOfElements2;
+    largestArray = listOfElements1;
   }
+  let zipper = createZipper(largestArray);
+  result = smallestArray.map(zipper);
+  /*for(let index = 0; index < smallestArrayLength; index++) {
+    result.push([listOfElements1[index], listOfElements2[index]]);
+  }*/
   return result;
 }
 

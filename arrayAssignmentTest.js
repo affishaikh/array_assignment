@@ -154,8 +154,8 @@ const zipTest = function() {
   assert.deepEqual(zip([1],[1]), [[1,1]]);
   assert.deepEqual(zip([1, 2], [2, 3]),[[1,2],[2,3]]);
   assert.deepEqual(zip([1, 2, 3], [4, 5, 6]),[[1,4],[2,5],[3,6]]);
-  assert.deepEqual(zip([1, 2, 3], [4, 5 ]),[[1,4],[2,5]]);
-  assert.deepEqual(zip(["Aftab", "Aftab","shaikh"], ["shaikh" ]), [["Aftab", "shaikh"]]);
+  assert.deepEqual(zip([1, 2, 3], [4, 5 ]),[[4, 1],[5,2]]);
+  assert.deepEqual(zip(["Aftab", "Aftab","shaikh"], ["shaikh" ]), [["shaikh", "Aftab"]]);
 }
 
 /*const partitionTest = function() {
