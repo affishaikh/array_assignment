@@ -135,6 +135,20 @@ const isAscendingOrderChecker = function(result, number) {
   return result;
 }
 
+const isDescendingOrderChecker = function(result, number) {
+  if(!(result.prevNumber >= number) && result.isDescending) {
+    result.isDescending = false;
+  }
+  result.prevNumber = number;
+  return result;
+}
+
+const createDigitsExtracter = function(givenNumberStr, index) {
+  return function(element) {
+    return givenNumberStr[index++];
+  }
+}
+
 exports.findOddNumbers = function(listOfNumbers) {
   let result = [];
   result = listOfNumbers.filter(isOdd);
@@ -302,25 +316,17 @@ exports.isAscendingOrder = function(listOfNumbers) {
   return result;
 }
 
-exports.sortDescendingOrder = function(listOfNumbers) {
-  for(let row = 0; row < listOfNumbers.length-1; row++) {
-    for(let column = row+1; column < listOfNumbers.length; column++) {
-      if(listOfNumbers[row] < listOfNumbers[column]) {
-        temporarySwapVar = listOfNumbers[row];
-        listOfNumbers[row] = listOfNumbers[column];
-        listOfNumbers[column] = temporarySwapVar;
-      }
-    }
-  }
-  return listOfNumbers;
+exports.isDescendingOrder = function(listOfNumbers) {
+  let result = listOfNumbers.reduce(isDescendingOrderChecker, {isDescending : true, prevNumber : listOfNumbers[0]}).isDescending;
+  return result;
 }
 
 exports.extractDigits = function(givenNumber) {
-  let result = [];
+  if(givenNumber === undefined) {return [];}
   let givenNumberStr = givenNumber.toString();
-  for(digit of givenNumberStr) {
-    result.push(+digit);
-  }
+  let result = new Array(givenNumberStr.length).fill(0);
+  let digitsExtracter = createDigitsExtracter(givenNumberStr, 0);
+  result = result.map(digitsExtracter);
   return result;
 }
 

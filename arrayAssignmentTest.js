@@ -16,7 +16,7 @@ const {findEvenNumbers,
   partition,
   averageOfNumbers,
   isAscendingOrder,
-  sortDescendingOrder,
+  isDescendingOrder,
   mapElementsLength,
   countOddNumbers,
   countEvenNumbers,
@@ -193,17 +193,18 @@ const isAscendingOrderTest = function() {
   assert.equal(isAscendingOrder([1,1, -1, -2]), false);
 }
 
-const sortDescendingOrderTest = function() {
-  assert.deepEqual(sortDescendingOrder([6, 8, 1, 56, 3]), [56, 8, 6, 3, 1]);
-  assert.deepEqual(sortDescendingOrder([]), []);
-  assert.deepEqual(sortDescendingOrder([1]), [1]);
-  assert.deepEqual(sortDescendingOrder([1,1]), [1,1]);
-  assert.deepEqual(sortDescendingOrder([1,1, -1, -2]), [1, 1, -1, -2]);
+const isDescendingOrderTest = function() {
+  assert.equal(isDescendingOrder([6, 8, 1, 56, 3]), false);
+  assert.equal(isDescendingOrder([]), true);
+  assert.equal(isDescendingOrder([1]), true);
+  assert.equal(isDescendingOrder([1,1]), true);
+  assert.equal(isDescendingOrder([1,1, -1, -2]), true);
 }
 
 const extractDigitsTest = function() {
   assert.deepEqual(extractDigits(1234), [1, 2, 3, 4]);
   assert.deepEqual(extractDigits(1), [1]);
+  assert.deepEqual(extractDigits(), []);
 }
 
 const rotateTest = function() {
@@ -234,6 +235,6 @@ reverseFibonacciTest();
 averageOfNumbersTest();
 findIndexOfTest();
 isAscendingOrderTest();
-sortDescendingOrderTest();
+isDescendingOrderTest();
 extractDigitsTest();
 rotateTest();
