@@ -127,6 +127,14 @@ const createIndexFinder = function(requiredNumber) {
   }
 }
 
+const isAscendingOrderChecker = function(result, number) {
+  if(!(result.prevNumber <= number) && result.isAscending) {
+    result.isAscending = false;
+  }
+  result.prevNumber = number;
+  return result;
+}
+
 exports.findOddNumbers = function(listOfNumbers) {
   let result = [];
   result = listOfNumbers.filter(isOdd);
@@ -289,17 +297,9 @@ exports.findIndexOf = function(listOfNumbers, requiredNumber) {
   return result;
 }
 
-exports.sortAscendingOrder = function(listOfNumbers) {
-  for(let row = 0; row < listOfNumbers.length-1; row++) {
-    for(let column = row+1; column < listOfNumbers.length; column++) {
-      if(listOfNumbers[row] > listOfNumbers[column]) {
-        temporarySwapVar = listOfNumbers[row];
-        listOfNumbers[row] = listOfNumbers[column];
-        listOfNumbers[column] = temporarySwapVar;
-      }
-    }
-  }
-  return listOfNumbers;
+exports.isAscendingOrder = function(listOfNumbers) {
+  let result = listOfNumbers.reduce(isAscendingOrderChecker, {isAscending : true, prevNumber : 0}).isAscending;
+  return result;
 }
 
 exports.sortDescendingOrder = function(listOfNumbers) {
